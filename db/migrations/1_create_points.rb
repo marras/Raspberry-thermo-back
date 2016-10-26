@@ -2,7 +2,7 @@ Sequel.migration do
   up do
     create_table(:points) do
       primary_key :id
-      Integer :value, null: false
+      Float :value, null: false
       DateTime :day, null: false
     end
   end
