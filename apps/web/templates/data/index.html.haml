@@ -6,14 +6,9 @@
 
   -# TODO Add temp display here and refresh via websockets
 
-%p History
+%h2 History
 
-- Metric.all.each do |m|
-  %p
-    %b= m.name
-  %p
-    - m.points.each do |p|
-      = p.value
+%p Select time range:
 
 .wrapper{style: 'width: 100%'}
   .ct-chart
