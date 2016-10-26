@@ -1,0 +1,32 @@
+%h1
+  Microscopy lab temperature
+
+%h2
+  Current temperatures:
+
+  -# TODO Add temp display here and refresh via websockets
+
+%p History
+
+- Metric.all.each do |m|
+  %p
+    %b= m.name
+  %p
+    - m.points.each do |p|
+      = p.value
+
+.wrapper{style: 'width: 100%'}
+  .ct-chart
+
+%h3 Legend
+- metric_names.each_with_index do |name, i|
+  - char = 'a'.ord + i
+  %div{class: "ct-series-#{char.chr}"}
+    .ct-slice-donut
+      %svg{width: 20, height: 20, version:"1.1", xmlns:"http://www.w3.org/2000/svg"}
+        %circle{cx:"10", cy:"10", r:2, fill:"transparent", 'stroke-width' => "10"}
+      = name
+
+
+%script
+  window.data = { labels: #{labels}, series: #{series} };
