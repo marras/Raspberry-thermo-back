@@ -217,6 +217,7 @@ module Web
         end
 
         def validate_signature!
+          halt 400 unless params[:signature] && params[:values]
           doc_to_sign = JSON.dump(params[:values].to_hash) + ENV['SIGNING_CODE']
           signature = Digest::MD5.hexdigest(doc_to_sign)
           halt 401 unless signature == params[:signature]
