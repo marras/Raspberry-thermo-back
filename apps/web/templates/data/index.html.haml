@@ -6,7 +6,9 @@
 %h2
   Current temperatures:
 
-  -# TODO Add temp display here and refresh via websockets
+  %h4
+    - current_temps.each do |name, temp|
+      %span.temp #{name}: #{temp}
 
 %h2 History
 
@@ -17,6 +19,5 @@
 :javascript
   g = new Dygraph(
     document.getElementById("graphdiv"),
-    "temps.csv",
-    {errorBars: true}
+    "/data"
   );
