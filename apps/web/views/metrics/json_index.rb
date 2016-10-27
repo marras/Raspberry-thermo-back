@@ -6,7 +6,7 @@ module Web::Views::Metrics
 
     def render
       json = {
-        metrics: metrics.map { |m| { id: m.id, name: m.name, max: m.max } }
+        metrics: metrics.map { |m| { id: m.id, name: m.name } }
       }
 
       raw JSON.generate(json)

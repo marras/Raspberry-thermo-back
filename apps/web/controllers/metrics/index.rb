@@ -8,6 +8,7 @@ module Web::Controllers::Metrics
 
     def call(params)
       self.format = :json
+      @metrics = Metric.all
     end
   end
 end
