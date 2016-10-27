@@ -13,8 +13,7 @@ module Web::Controllers::Data
         metric = Metric.find_or_create(name: metric_name)
 
         point = Point.find(metric_id: metric.id, day: timestamp) || Point.new(metric_id: metric.id, day: timestamp)
-        point.value = value.to_i
-        point.metric = metric
+        point.value = value.to_f
 
         puts point.inspect
         point.save
