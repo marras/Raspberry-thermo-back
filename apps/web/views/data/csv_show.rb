@@ -8,6 +8,7 @@ module Web::Views::Data
     def render
       csv_file = CSV.generate do |csv|
         metrics_ids = Metric.all.map(&:id)
+        csv << ["time", *Metric.all.map(&:name)]
         series.each do |day, values|
           arr = metrics_ids.map do |metric_id|
             value_for_metric = values.find { |v| v.metric_id == metric_id }
