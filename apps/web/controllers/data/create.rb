@@ -8,10 +8,11 @@ module Web::Controllers::Data
 
     def call(params)
       values = params[:values]
+      timestamp = Time.now
       values.each do |metric_name, value|
         metric = Metric.find_or_create(name: metric_name)
 
-        point = Point.find(metric_id: metric.id, day: Time.now) || Point.new(metric_id: metric.id, day: Time.now)
+        point = Point.find(metric_id: metric.id, day: timestamp) || Point.new(metric_id: metric.id, day: timestamp)
         point.value = value.to_i
         point.metric = metric
 
