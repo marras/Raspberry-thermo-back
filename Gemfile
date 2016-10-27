@@ -8,8 +8,7 @@ gem 'hanami-model', '~> 0.5'
 gem 'haml'
 gem 'pg'
 gem 'uglifier'
-
-gem 'warden'
+gem 'sass'
 
 gem 'pry'
 
