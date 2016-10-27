@@ -11,7 +11,7 @@ module Web::Controllers::Data
       values.each do |metric_name, value|
         metric = Metric.find_or_create(name: metric_name)
 
-        point = Point.find(metric_id: metric.id, day: Date.today) || Point.new(metric_id: metric.id, day: Date.today)
+        point = Point.find(metric_id: metric.id, day: Time.now) || Point.new(metric_id: metric.id, day: Time.now)
         point.value = value.to_i
         point.metric = metric
 
