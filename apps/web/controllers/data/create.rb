@@ -4,7 +4,7 @@ module Web::Controllers::Data
 
     accept :json
 
-    before :require_login!
+    before :validate_signature!
 
     def call(params)
       values = params[:values]
@@ -25,7 +25,7 @@ module Web::Controllers::Data
     private
 
     def verify_csrf_token?
-      false # we should probably implement some signing mechanism
+      false
     end
   end
 end

@@ -215,6 +215,12 @@ module Web
         def require_login!
           # Verify md5 hash of payload
         end
+
+        def validate_signature!
+          doc_to_sign = JSON.dump(params[:values].to_hash) + ENV['SIGNING_CODE']
+          signature = Digest::SHA256.digest(doc_to_sign)
+          halt 401 unless signature == params[:signature]
+        end
       end
 
       # Configure the code that will yield each time Web::View is included
