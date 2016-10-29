@@ -12,6 +12,12 @@ gem 'sass'
 
 gem 'pry'
 
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
+
 group :test do
   gem 'minitest'
   gem 'capybara'
