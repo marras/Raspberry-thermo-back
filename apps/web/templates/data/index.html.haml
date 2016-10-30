@@ -13,17 +13,18 @@
 
 %h2 History
 
-%p From:
-%input.flatpickr#fromDate{type: "text", placeholder: "Select Date.."}
+.row
+  %span From:
+  %input.flatpickr#fromDate{type: "text", placeholder: "Select Date.."}
 
-%p To:
-%input.flatpickr#toDate{type: "text", placeholder: "Select Date.."}
+  %span To:
+  %input.flatpickr#toDate{type: "text", placeholder: "Select Date.."}
 
 #graphdiv
 
 :javascript
-  document.getElementById("fromDate").flatpickr({});
-  document.getElementById("toDate").flatpickr({});
+  document.getElementById("fromDate").flatpickr({enableTime: true});
+  document.getElementById("toDate").flatpickr({enableTime: true});
 
   width = window.innerWidth;
   g = new Dygraph(
