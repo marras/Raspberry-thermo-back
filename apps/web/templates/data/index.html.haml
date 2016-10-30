@@ -11,17 +11,15 @@
       %h4
         %span.temp{class: cls} #{temp} °C
 
-%h2 History
-
 %form{url: '/', method: :get}
   .row
     .date-selector
       %span From:
-      %input.flatpickr#fromDate{type: "text", name: 'from_date', placeholder: "Select Date.."}
+      %input.flatpickr#startDate{type: "text", name: 'start', placeholder: "Select Date..", value: start_date}
 
     .date-selector
       %span To:
-      %input.flatpickr#toDate{type: "text", name: 'end_date', placeholder: "Select Date.."}
+      %input.flatpickr#endDate{type: "text", name: 'end', placeholder: "Select Date..", value: end_date}
 
     .date-selector
       %input#submit{type: :submit}
@@ -29,15 +27,23 @@
 #graphdiv
 
 :javascript
-  document.getElementById("fromDate").flatpickr({enableTime: true});
-  document.getElementById("toDate").flatpickr({enableTime: true});
+  document.getElementById("startDate").flatpickr({enableTime: true});
+  document.getElementById("endDate").flatpickr({enableTime: true});
 
   width = window.innerWidth;
+  onZoom = function (minDate, maxDate, yRanges) {
+    console.log(minDate, maxDate)
+  }
+
+  startDate = document.getElementById('startDate').value
+  endDate = document.getElementById('endDate').value
+
   g = new Dygraph(
     document.getElementById("graphdiv"),
-    "/data",
+    encodeURI("/data?start="+startDate+"&end="+endDate),
     {
       colors: ["#FF0000", "#00FF00", "#0000FF"],
-      width: width * 0.9
+      width: width * 0.9,
+      zoomCallback: onZoom
     }
   );

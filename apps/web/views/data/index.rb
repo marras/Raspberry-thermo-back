@@ -1,3 +1,5 @@
+require 'uri'
+
 module Web::Views::Data
   class Index
     include Web::View
