@@ -13,12 +13,18 @@
 
 %h2 History
 
-.row
-  %span From:
-  %input.flatpickr#fromDate{type: "text", placeholder: "Select Date.."}
+%form{url: '/', method: :get}
+  .row
+    .date-selector
+      %span From:
+      %input.flatpickr#fromDate{type: "text", name: 'from_date', placeholder: "Select Date.."}
 
-  %span To:
-  %input.flatpickr#toDate{type: "text", placeholder: "Select Date.."}
+    .date-selector
+      %span To:
+      %input.flatpickr#toDate{type: "text", name: 'end_date', placeholder: "Select Date.."}
+
+    .date-selector
+      %input#submit{type: :submit}
 
 #graphdiv
 
