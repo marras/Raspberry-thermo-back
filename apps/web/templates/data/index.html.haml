@@ -9,21 +9,28 @@
     - cls = "t#{i+1}"
     .temp-box
       %h4
-        %span.name{class: cls} #{name}:
-        %br
-        %span.temp{class: cls}= temp
+        %span.temp{class: cls} #{temp} °C
 
 %h2 History
 
-%p Select time range:
+%p From:
+%input.flatpickr#fromDate{type: "text", placeholder: "Select Date.."}
+
+%p To:
+%input.flatpickr#toDate{type: "text", placeholder: "Select Date.."}
 
 #graphdiv
 
 :javascript
+  document.getElementById("fromDate").flatpickr({});
+  document.getElementById("toDate").flatpickr({});
+
+  width = window.innerWidth;
   g = new Dygraph(
     document.getElementById("graphdiv"),
     "/data",
     {
-      colors: ["#FF0000", "#00FF00", "#0000FF"]
+      colors: ["#FF0000", "#00FF00", "#0000FF"],
+      width: width * 0.9
     }
   );
