@@ -2,6 +2,43 @@ body {
 
 }
 
+h1 {
+  text-align: center;
+}
+
+h4 {
+  margin: auto;
+  span {
+    margin: auto;
+    text-align: 'center';
+    font-size: 36pt;
+  }
+
+  .temp {
+
+  }
+
+  .name {
+    font-weight: 400;
+  }
+
+  .t1 {
+    color: #F00;
+  }
+
+  .t2 {
+    color: #0F0;
+  }
+
+  .t3 {
+    color: #00F;
+  }
+}
+
+.temp-box {
+  width: 33%;
+}
+
 #graphdiv {
   width: 600px;
   height: 400px;
@@ -9,4 +46,11 @@ body {
 
 .temp {
   margin-right: 30px;
+}
+
+.row {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
