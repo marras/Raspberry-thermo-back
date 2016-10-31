@@ -10,6 +10,7 @@ gem 'pg'
 gem 'uglifier'
 gem 'sass'
 
+gem 'therubyracer'
 gem 'pry'
 
 group :development do
