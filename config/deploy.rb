@@ -13,11 +13,14 @@ set :log_level, :debug
 set :linked_files, %w{.env}
 set :linked_dirs, %w{log}
 
+set :rvm_type, :system
+set :rvm_custom_path, '/usr/local/rvm/bin/rvm'
+
 namespace :deploy do
   desc "Precompile Hanami assets"
   task :precompile do
     on roles(:all) do
-      execute "cd #{fetch(:deploy_to)}/current && HANAMI_ENV=production ~/.rvm/bin/rvm default do bundle exec hanami assets precompile"
+      execute "cd #{fetch(:deploy_to)}/current && HANAMI_ENV=production #{fetch(:rvm_custom_path)} default do bundle exec hanami assets precompile"
     end
   end
 
