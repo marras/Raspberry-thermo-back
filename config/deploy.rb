@@ -19,7 +19,7 @@ namespace :deploy do
   desc "Precompile Hanami assets"
   task :precompile do
     on roles(:all) do
-      execute "cd #{fetch(:deploy_to)}/current && HANAMI_ENV=production #{fetch(:rvm_custom_path)} default do bundle exec hanami assets precompile"
+      execute "cd #{fetch(:deploy_to)}/current && HANAMI_ENV=production /usr/local/rvm/bin/rvm default do bundle exec hanami assets precompile"
     end
   end
 
