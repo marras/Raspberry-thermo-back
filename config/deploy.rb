@@ -11,7 +11,7 @@ set :keep_releases, 5
 set :log_level, :debug
 
 set :linked_files, %w{.env}
-set :linked_dirs, %w{log}
+set :linked_dirs, %w{log sockets pids}
 
 set :rvm_type, :system
 
