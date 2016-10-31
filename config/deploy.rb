@@ -14,7 +14,6 @@ set :linked_files, %w{.env}
 set :linked_dirs, %w{log}
 
 set :rvm_type, :system
-set :rvm_custom_path, '/usr/local/rvm/bin/rvm'
 
 namespace :deploy do
   desc "Precompile Hanami assets"
