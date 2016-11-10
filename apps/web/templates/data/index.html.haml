@@ -3,6 +3,10 @@
 %h1.title
   Microscopy lab temperature
 
+%h5
+  Tunnel with command:
+  %code ssh #{tunnel_ssh}
+
 .row
   - current_temps.each_with_index do |pair, i|
     - name, temp = pair

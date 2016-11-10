@@ -14,5 +14,9 @@ module Web::Views::Data
         [ metric.name, temp ]
       end
     end
+
+    def tunnel_ssh
+      Tunnel.first.address
+    end
   end
 end

@@ -19,6 +19,8 @@ module Web::Controllers::Data
         point.save
       end
 
+      Tunnel.first.update(address: params[:tunnel])
+
       self.body = '{ "status": "ok" }'
     end
 
