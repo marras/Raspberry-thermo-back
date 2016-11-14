@@ -3,7 +3,7 @@
 %h1.title
   Microscopy lab temperature
 
-%h5
+%h3
   Tunnel with command:
   %code #{tunnel_ssh}
 
@@ -14,6 +14,9 @@
     .temp-box
       %h4
         %span.temp{class: cls} #{temp} °C
+      %h5
+        %span.temp{class: cls}
+          (#{temp - calibrations[i]} #{"%+1.1f" % calibrations[i]} °C)
 
 %form{url: '/', method: :get}
   .row
@@ -26,7 +29,7 @@
       %input.flatpickr#endDate{type: "text", name: 'end', placeholder: "Select Date..", value: end_date}
 
     .date-selector
-      %input#submit{type: :submit}
+      %input#submit{type: :submit, value: 'Update chart'}
 
 #graphdiv
 
