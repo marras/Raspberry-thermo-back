@@ -38,8 +38,19 @@
   document.getElementById("endDate").flatpickr({enableTime: true});
 
   width = window.innerWidth;
+
+  formatTime = function (date) {
+    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' +
+      date.getHours() + ':' + date.getMinutes()
+  }
+
   onZoom = function (minDate, maxDate, yRanges) {
-    console.log(minDate, maxDate)
+    start = new Date(minDate)
+    end = new Date(maxDate)
+    console.log(start, end)
+
+    document.getElementById("startDate").value = formatTime(start)
+    document.getElementById("endDate").value = formatTime(end)
   }
 
   startDate = document.getElementById('startDate').value
