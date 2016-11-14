@@ -13,7 +13,7 @@
     - cls = "t#{i+1}"
     .temp-box
       %h4
-        %span.temp{class: cls} #{temp} °C
+        %span.temp{class: cls} #{"%2.1f" % temp} °C
       %h5
         %span.temp{class: cls}
           (#{temp - calibrations[i]} #{"%+1.1f" % calibrations[i]} °C)

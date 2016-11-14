@@ -16,7 +16,7 @@ module Web::Views::Data
     end
 
     def tunnel_ssh
-      string = Tunnel.first.address.gsub(/\Atcp:\/\//, '')
+      string = Tunnel.first.address.to_s.gsub(/\Atcp:\/\//, '')
       address, port = string.split(':')
       if port
         "ssh -p #{port} -l pi #{address}"
