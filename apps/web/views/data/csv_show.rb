@@ -24,14 +24,11 @@ module Web::Views::Data
     private
 
     def points
-      Point
-        .order(:day)
-        .where('day > ?', start_date)
-        .where('day < ?', end_date)
+      Point.date_range(start_date, end_date)
     end
 
     def series
-      Hash[points.all.group_by(&:day)]
+      Hash[points.group_by(&:day)]
     end
   end
 end
