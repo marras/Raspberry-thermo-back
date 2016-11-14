@@ -60,7 +60,7 @@
 
   g = new Dygraph(
     document.getElementById("graphdiv"),
-    encodeURI("/data?start="+startDate+"&end="+endDate),
+    encodeURI("/data?skip_calibration_header=true&start="+startDate+"&end="+endDate),
     {
       colors: ["#FF0000", "#00FF00", "#0000FF"],
       width: width * 0.9,

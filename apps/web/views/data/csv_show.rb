@@ -9,6 +9,9 @@ module Web::Views::Data
       csv_file = CSV.generate do |csv|
         metrics_ids = Metric.all.map(&:id)
         csv << ["time", *Metric.all.map(&:name)]
+        if header
+          csv << ["calibration", *Metric.all.map { |m| "%+1.1f" % m.calibration }]
+        end
         series.each do |day, values|
           arr = metrics_ids.map do |metric_id|
             value_for_metric = values.find { |v| v.metric_id == metric_id }
