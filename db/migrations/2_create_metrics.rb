@@ -10,6 +10,6 @@ Sequel.migration do
 
   down do
     drop_table(:metrics)
-    remove_column :points, :metric_id
+    drop_column :points, :metric_id
   end
 end

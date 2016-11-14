@@ -4,6 +4,6 @@ Sequel.migration do
   end
 
   down do
-    remove_column :metrics, :calibration
+    drop_column :metrics, :calibration
   end
 end
