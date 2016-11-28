@@ -7,6 +7,9 @@
   Tunnel with command:
   %code #{tunnel_ssh}
 
+%h3.right
+  Last measured: #{last_measured}
+
 .row
   - current_temps.each_with_index do |pair, i|
     - name, temp = pair

@@ -24,5 +24,17 @@ module Web::Views::Data
         string
       end
     end
+
+    def last_measured
+      time = Point.order(:day).last.day
+      diff_min = (Time.now - time) / 60
+      if diff_min < 1
+        "Just now"
+      elsif diff_min < 60
+        "#{diff_min.round(1)} minutes ago"
+      else
+        "#{(diff_min / 60).round(1)} hours ago"
+      end
+    end
   end
 end
