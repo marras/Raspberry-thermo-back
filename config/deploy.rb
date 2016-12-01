@@ -26,7 +26,7 @@ namespace :deploy do
   desc "Restart Puma server"
   task :restart_server do
     on roles(:all) do
-      execute "sudo service puma-manager restart"
+      execute "sudo systemctl restart puma.service"
     end
   end
 
