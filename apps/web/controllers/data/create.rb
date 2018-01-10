@@ -9,8 +9,8 @@ module Web::Controllers::Data
     def call(params)
       values = params[:values]
       timestamp = Time.now
-      values.each do |metric_name, value|
-        metric = Metric.find_or_create(name: metric_name)
+      values.each do |sensor_id, value|
+        metric = Metric.find_or_create(sensor_id: sensor_id)
 
         point = Point.find(metric_id: metric.id, day: timestamp) || Point.new(metric_id: metric.id, day: timestamp)
         point.value = value.to_f
